@@ -263,10 +263,9 @@ def moved_average(data, window_size):
     return np.convolve(data, b, mode='same')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=None)
-    parser.add_argument('env_id', nargs='?', default='PinBall-v0', help='Select the environment to run')
-    parser.add_argument('--debug', action='store_true')
-    parser.add_argument('--vis', action='store_true')
+    parser = argparse.ArgumentParser(description='Option-Critic Learning.')
+    parser.add_argument('env_id', nargs='?', default='PinBall-v0', help='Select the environment to run.')
+    parser.add_argument('--vis', action='store_true', help='Attach when you want to look visual results.')
     parser.add_argument('--model', help='Input model dir path')
     args = parser.parse_args()
     env = gym.make(args.env_id)
