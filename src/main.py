@@ -23,7 +23,7 @@ def moved_average(data, window_size):
     b=np.ones(window_size)/window_size
     return np.convolve(data, b, mode='same')
 
-def learning_loop(env_id, episode_count, model, vis, n_options):
+def learning_loop(env_id, episode_count, model, visual, n_options):
     env = gym.make(env_id)
     outdir = '/tmp/random-agent-results'
     env = wrappers.Monitor(env, directory=outdir, force=True)
@@ -52,7 +52,7 @@ def learning_loop(env_id, episode_count, model, vis, n_options):
         agent.set_last_q_omega(option, ob)
         is_render = False
         while True:
-            if (i+1) % 20 == 0 and vis:
+            if (i+1) % 20 == 0 and visual:
                 env.render()
                 is_render = True 
             pre_obs = ob
